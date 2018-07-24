@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="user_login_label_text_size">20sp</dimen>
+    <dimen name="margin_xs">4dp</dimen>
+</resources>
