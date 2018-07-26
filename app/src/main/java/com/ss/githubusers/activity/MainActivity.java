@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
@@ -86,11 +87,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadUsers(int limit) {
-        Call<List<User>> callAsync = RetrofitClient.getInstance().getService().getUsers(mLimit);
+        Call<List<User>> callAsync = RetrofitClient.getInstance().getService().getUsers(limit);
         callAsync.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                Log.d("----------------", "Loading users " + response.code());
                 if (response.isSuccessful()) {
+                    Log.d("----------------", "Loading is successful");
                     mUsersViewModel.loadUsers(response.body());
                     mLimit += USERS_LIMIT_PER_PAGE;
                     if (mLimit >= 100) {

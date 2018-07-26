@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 
 public interface GitHubService {
 
-    String OAUTH_TOKEN = "bf3c59a02546a932ffc48e61ad0cbae074b64b84";
+    String OAUTH_TOKEN = "056486993dc5c9ed18019405c3ebb6dbb4c07860";
 
     @Headers({"Authorization: token " + OAUTH_TOKEN,
             "rel: next"})
