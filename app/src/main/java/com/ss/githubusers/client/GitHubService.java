@@ -12,14 +12,11 @@ import retrofit2.http.Query;
 
 public interface GitHubService {
 
-    String OAUTH_TOKEN = "056486993dc5c9ed18019405c3ebb6dbb4c07860";
 
-    @Headers({"Authorization: token " + OAUTH_TOKEN,
-            "rel: next"})
+    @Headers({"rel: next"})
     @GET("/users")
     Call<List<User>> getUsers(@Query("per_page") int per_page);
 
-    @Headers({"Authorization: token " + OAUTH_TOKEN})
     @GET("/users/{username}")
     Call<User> getUser(@Path("username") String username);
 }
